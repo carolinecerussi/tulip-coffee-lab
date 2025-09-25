@@ -1,0 +1,117 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  background: #f8f7f5;
+  color: #333;
+}
+
+/* Header */
+.site-header {
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+/* Logo Layout */
+.logo {
+  display: flex;
+  align-items: baseline; /* keeps text aligned neatly */
+  width: 40vw;
+}
+
+.logo-main {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 4vw;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  margin-right: 0.3em; /* keeps "coffee lab" close */
+}
+
+.logo-sub {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2vw;
+  font-weight: 400;
+  color: #666;
+  align-self: center; /* vertical align next to TULIP */
+}
+
+/* Nav links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #333;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #a24c2c;
+}
+
+/* Rotating Cube Banner */
+.banner {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+  margin-top: 2rem;
+}
+
+.cube {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: rotateCube 20s infinite ease-in-out;
+}
+
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #444;
+  padding-left: 1rem;
+  backface-visibility: hidden;
+}
+
+.face:nth-child(1) { transform: rotateX(0deg) translateZ(10vh); }
+.face:nth-child(2) { transform: rotateX(90deg) translateZ(10vh); }
+.face:nth-child(3) { transform: rotateX(180deg) translateZ(10vh); }
+.face:nth-child(4) { transform: rotateX(-90deg) translateZ(10vh); }
+
+@keyframes rotateCube {
+  0%, 20% { transform: rotateX(0deg); }
+  25%, 45% { transform: rotateX(-90deg); }
+  50%, 70% { transform: rotateX(-180deg); }
+  75%, 95% { transform: rotateX(-270deg); }
+  100% { transform: rotateX(-360deg); }
+}
